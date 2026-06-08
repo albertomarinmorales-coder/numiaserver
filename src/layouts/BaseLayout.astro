@@ -28,6 +28,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
   </head>
   <body class="overflow-x-hidden antialiased">
+    <!-- Sky atmosphere: aurora + cloud mist + rising crystal particles -->
+    <div class="sky-aurora"    aria-hidden="true"></div>
+    <div class="sky-clouds"    aria-hidden="true"></div>
+    <div class="sky-particles" aria-hidden="true"></div>
+
     <a
       href="#contenido"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-arcane focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-void"

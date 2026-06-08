@@ -14,17 +14,18 @@
 
   html {
     scroll-behavior: smooth;
-    background: #0a0b0f;
+    background: #07090f;
   }
 
   body {
     min-height: 100vh;
-    /* Dark stone atmosphere — no modern grid */
+    /* Deep sky — night from altitude, city light above */
     background:
-      radial-gradient(ellipse 90% 60% at 50% -8%, rgba(110, 231, 216, 0.11), transparent 56%),
-      radial-gradient(ellipse 60% 40% at 88% 14%, rgba(198, 161, 91, 0.07), transparent 44%),
-      radial-gradient(ellipse 50% 50% at 12% 70%, rgba(110, 231, 216, 0.04), transparent 38%),
-      linear-gradient(180deg, #0c0e13 0%, #0a0b0f 50%, #07080b 100%);
+      radial-gradient(ellipse 100% 55% at 50% -5%, rgba(50, 110, 210, 0.09), transparent 60%),
+      radial-gradient(ellipse 55% 35% at 22% 8%,  rgba(70, 130, 200, 0.05), transparent 45%),
+      radial-gradient(ellipse 55% 35% at 80% 6%,  rgba(80, 160, 230, 0.04), transparent 42%),
+      radial-gradient(ellipse 60% 40% at 88% 14%, rgba(198, 161, 91, 0.05), transparent 44%),
+      linear-gradient(180deg, #0b0e17 0%, #090b12 45%, #07080b 100%);
     color: #cdd8db;
     font-family: "Alegreya", serif;
     text-rendering: optimizeLegibility;
@@ -39,17 +40,117 @@
     content: "";
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 180px 180px;
-    opacity: 0.032;
+    opacity: 0.028;
   }
 
-  /* Deep vignette — edges darker, medieval depth */
+  /* Deep vignette — edges darker */
   body::after {
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
     content: "";
-    background: radial-gradient(ellipse at 50% 38%, transparent 24%, rgba(0, 0, 0, 0.76) 100%);
+    background: radial-gradient(ellipse at 50% 38%, transparent 22%, rgba(0, 0, 0, 0.78) 100%);
+  }
+
+  /* ── Sky atmosphere layers ── */
+
+  /* Aurora: diffused city-light bleeding down from above */
+  .sky-aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 110% 38% at 50% -2%, rgba(60, 130, 220, 0.13) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 22% at 18% 0%,  rgba(90, 160, 240, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse 55% 20% at 82% 0%,  rgba(70, 145, 225, 0.06) 0%, transparent 48%);
+    animation: auroraBreath 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes auroraBreath {
+    from { opacity: 0.7;  transform: scaleX(1)    translateY(0px);  }
+    to   { opacity: 1.0;  transform: scaleX(1.04) translateY(-4px); }
+  }
+
+  /* Cloud wisp: horizontal mist band at ~30vh */
+  .sky-clouds {
+    position: fixed;
+    left: 0; right: 0;
+    top: 28vh;
+    height: 160px;
+    z-index: -3;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(140, 175, 230, 0.028) 35%,
+      rgba(140, 175, 230, 0.042) 50%,
+      rgba(140, 175, 230, 0.028) 65%,
+      transparent
+    );
+    animation: cloudDrift 22s ease-in-out infinite alternate;
+  }
+
+  @keyframes cloudDrift {
+    from { transform: translateY(-8px) scaleX(1);    opacity: 0.6; }
+    to   { transform: translateY(12px) scaleX(1.03); opacity: 1;   }
+  }
+
+  /* Crystal dust particles rising upward */
+  .sky-particles {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .sky-particles::before,
+  .sky-particles::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: transparent;
+    /* 20 particles spread across the viewport — x: 0–1900px, y: 0–1800px */
+    box-shadow:
+       80px  120px 0 0   rgba(160, 210, 255, 0.36),
+      240px  780px 0 1px rgba(180, 230, 255, 0.25),
+      415px  340px 0 0   rgba(150, 200, 255, 0.30),
+      580px 1100px 0 0   rgba(170, 220, 255, 0.20),
+      720px  560px 0 1px rgba(160, 210, 255, 0.28),
+      900px 1420px 0 0   rgba(150, 200, 255, 0.22),
+     1060px  280px 0 0   rgba(180, 230, 255, 0.32),
+     1190px  880px 0 1px rgba(160, 210, 255, 0.18),
+     1380px 1600px 0 0   rgba(170, 220, 255, 0.26),
+     1520px  450px 0 0   rgba(150, 200, 255, 0.33),
+     1680px 1050px 0 1px rgba(180, 230, 255, 0.20),
+     1820px  720px 0 0   rgba(160, 210, 255, 0.28),
+      140px 1300px 0 0   rgba(150, 200, 255, 0.20),
+      360px 1700px 0 1px rgba(170, 220, 255, 0.24),
+      640px 1480px 0 0   rgba(160, 210, 255, 0.18),
+      850px  970px 0 0   rgba(180, 230, 255, 0.22),
+     1100px 1630px 0 1px rgba(150, 200, 255, 0.30),
+     1300px  200px 0 0   rgba(160, 210, 255, 0.35),
+     1580px 1250px 0 0   rgba(170, 220, 255, 0.20),
+     1750px  400px 0 1px rgba(180, 230, 255, 0.25);
+  }
+
+  /* First set rises from start */
+  .sky-particles::before {
+    animation: riseParticles 30s linear infinite;
+  }
+
+  /* Second set is offset by half — creates continuous stream */
+  .sky-particles::after {
+    animation: riseParticles 30s linear infinite -15s;
+  }
+
+  @keyframes riseParticles {
+    from { transform: translateY(0px);    }
+    to   { transform: translateY(-1800px); }
   }
 
   ::selection {

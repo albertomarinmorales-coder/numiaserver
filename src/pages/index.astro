@@ -195,25 +195,27 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   }
 
   .glow-arcane {
-    width: 55rem; height: 55rem;
-    top: 40%; left: 62%;
+    width: 60rem; height: 50rem;
+    top: 35%; left: 62%;
     transform: translate(-50%, -50%);
-    background: rgba(110, 231, 216, 0.075);
+    background: rgba(70, 140, 220, 0.07);
   }
 
   .glow-relic {
     width: 32rem; height: 32rem;
     top: 35%; left: 58%;
     transform: translate(-50%, -50%);
-    background: rgba(198, 161, 91, 0.055);
+    background: rgba(198, 161, 91, 0.05);
   }
 
+  /* City light bleeding from above */
   .glow-cold {
-    width: 28rem; height: 28rem;
-    top: 50%; left: 18%;
-    transform: translate(-50%, -50%);
-    background: rgba(110, 231, 216, 0.038);
-    filter: blur(8rem);
+    width: 80rem; height: 28rem;
+    top: -6%; left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(80, 150, 240, 0.10) 0%, transparent 70%);
+    filter: blur(6rem);
+    border-radius: 0;
   }
 
   .hero-vignette {
@@ -442,16 +444,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     position: relative;
     width: 100%;
     min-height: 380px;
-    align-self: stretch;         /* match text column height */
+    align-self: stretch;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(198, 161, 91, 0.12);
+    border: 1px solid rgba(80, 140, 220, 0.14);
     background:
-      radial-gradient(circle at 38% 42%, rgba(110, 231, 216, 0.08), transparent 55%),
-      radial-gradient(circle at 70% 70%, rgba(198, 161, 91, 0.05), transparent 45%),
-      linear-gradient(150deg, #100e09 0%, #09080a 100%);
+      radial-gradient(ellipse at 50% 0%,   rgba(70, 140, 230, 0.12), transparent 60%),
+      radial-gradient(circle at 38% 42%,   rgba(110, 231, 216, 0.06), transparent 55%),
+      radial-gradient(circle at 70% 75%,   rgba(198, 161, 91, 0.04), transparent 45%),
+      linear-gradient(180deg, #0c1120 0%, #090b14 60%, #07080b 100%);
     overflow: hidden;
   }
 
@@ -502,7 +505,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     position: absolute;
     inset-inline: 0; bottom: 0;
     height: 16rem;
-    background: linear-gradient(to top, #09080a, transparent);
+    background: linear-gradient(to top, #07090f, transparent);
     pointer-events: none;
     z-index: 2;
   }
