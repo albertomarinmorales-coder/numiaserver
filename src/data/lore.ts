@@ -13,6 +13,7 @@ export const seals = [
     virtue: "Razón",
     symbol: "I",
     phrase: "El límite no es prisión, sino condición de existencia.",
+    gem: { name: "Zafiro",     base: "#3b82f6", glow: "rgba(59,130,246,0.50)",  bg: "rgba(59,130,246,0.15)",  subtle: "rgba(59,130,246,0.07)"  },
   },
   {
     name: "Iria Caldran",
@@ -20,6 +21,7 @@ export const seals = [
     virtue: "Disciplina",
     symbol: "II",
     phrase: "Sin núcleo no hay realidad, porque lo disperso no permanece.",
+    gem: { name: "Rubí",       base: "#ef4444", glow: "rgba(239,68,68,0.50)",   bg: "rgba(239,68,68,0.15)",   subtle: "rgba(239,68,68,0.07)"   },
   },
   {
     name: "Soren Vael",
@@ -27,6 +29,7 @@ export const seals = [
     virtue: "Perseverancia",
     symbol: "III",
     phrase: "Una sola especie. Un solo propósito. Un solo futuro.",
+    gem: { name: "Esmeralda",  base: "#10b981", glow: "rgba(16,185,129,0.50)",  bg: "rgba(16,185,129,0.15)",  subtle: "rgba(16,185,129,0.07)"  },
   },
   {
     name: "Lysandra Kehl",
@@ -34,6 +37,7 @@ export const seals = [
     virtue: "Curiosidad",
     symbol: "IV",
     phrase: "Sin cohesión, la humanidad no se rompe: se disuelve.",
+    gem: { name: "Amatista",   base: "#a855f7", glow: "rgba(168,85,247,0.50)",  bg: "rgba(168,85,247,0.15)",  subtle: "rgba(168,85,247,0.07)"  },
   },
   {
     name: "Dorian Harth",
@@ -41,6 +45,7 @@ export const seals = [
     virtue: "Lealtad",
     symbol: "V",
     phrase: "Lo no recordado deja de pertenecer al mundo.",
+    gem: { name: "Topacio",    base: "#f59e0b", glow: "rgba(245,158,11,0.50)",  bg: "rgba(245,158,11,0.15)",  subtle: "rgba(245,158,11,0.07)"  },
   },
   {
     name: "Valerius Zane",
@@ -48,6 +53,7 @@ export const seals = [
     virtue: "Sacrificio",
     symbol: "VI",
     phrase: "La estabilidad no es estado, sino vigilancia constante.",
+    gem: { name: "Aguamarina", base: "#06b6d4", glow: "rgba(6,182,212,0.50)",   bg: "rgba(6,182,212,0.15)",   subtle: "rgba(6,182,212,0.07)"   },
   },
 ];
 
@@ -89,6 +95,7 @@ export const historyBooks = [
     roman: "I",
     shortTitle: "El Equilibrio",
     title: "Del Tiempo del Equilibrio",
+    gem: { name: "Perla",      base: "#e2e8f0", glow: "rgba(226,232,240,0.45)", bg: "rgba(226,232,240,0.12)", subtle: "rgba(226,232,240,0.06)" },
     paragraphs: [
       "Antes de la Ascensión existió una era que los antiguos llamaron simplemente El Mundo. En aquellos días, los mares se extendían hasta horizontes imposibles de contemplar, los bosques cubrían continentes enteros y los cielos eran atravesados por aves cuyo número ninguna mente podía contar.",
       "La humanidad habitaba aquella creación como una especie más entre muchas. Los hombres nacían, vivían, morían y regresaban a la tierra que los había alimentado. Todo ocupaba su lugar, toda cosa cumplía su función y toda existencia contribuía a la armonía del conjunto.",
@@ -101,6 +108,7 @@ export const historyBooks = [
     roman: "II",
     shortTitle: "El Salvador",
     title: "Del Salvador y el Primer Cristal",
+    gem: { name: "Cristal",    base: "#7dd3fc", glow: "rgba(125,211,252,0.45)", bg: "rgba(125,211,252,0.12)", subtle: "rgba(125,211,252,0.06)" },
     paragraphs: [
       "Cuando el Desequilibrio se extendía por el mundo y las naciones luchaban unas contra otras por recursos cada vez más escasos, nació aquel que sería conocido para toda la eternidad como el Salvador. Los registros anteriores a su aparición son confusos. Algunos afirman que fue un científico; otros sostienen que fue un explorador; otros aseguran que simplemente apareció cuando la humanidad más lo necesitaba. La Sociedad enseña que su origen carece de importancia. Lo que importa es aquello que entregó al mundo.",
       "Durante años recorrió las regiones afectadas por el Desequilibrio. Estudió las anomalías, observó la deformación de los ecosistemas y analizó fenómenos que ningún conocimiento existente era capaz de explicar. Mientras otros veían caos, él buscó patrones. Mientras otros veían una condena inevitable, él buscó una solución.",
@@ -116,6 +124,7 @@ export const historyBooks = [
     roman: "III",
     shortTitle: "Los Seis Sellos",
     title: "De los Seis Sellos",
+    gem: { name: "Reliquia",   base: "#c6a15b", glow: "rgba(198,161,91,0.50)",  bg: "rgba(198,161,91,0.15)",  subtle: "rgba(198,161,91,0.07)"  },
     paragraphs: [
       "El Salvador comprendió que ningún hombre podía salvar a la humanidad por sí solo. Por ello reunió a los Seis Sellos. No eran guerreros, reyes ni nobles; eran individuos elegidos por sus virtudes cardinales: la Razón, la Disciplina, la Perseverancia, la Curiosidad, la Lealtad y el Sacrificio.",
       "Cada uno recibió un fragmento del conocimiento de la cristalización, cada uno fundó una de las Grandes Órdenes y juntos construyeron las bases de lo que más tarde sería la Sociedad.",
@@ -135,6 +144,7 @@ export const historyBooks = [
     roman: "IV",
     shortTitle: "La Fundación",
     title: "De la Fundación de la Sociedad",
+    gem: { name: "Jade",       base: "#34d399", glow: "rgba(52,211,153,0.45)",  bg: "rgba(52,211,153,0.12)",  subtle: "rgba(52,211,153,0.06)"  },
     paragraphs: [
       "Cuando el mundo se encontraba al borde del colapso, los gobernantes acudieron al Primer Estabilizador. Le ofrecieron coronas, ejércitos e imperios. Le suplicaron que se proclamara soberano del mundo, pero él rechazó todos los títulos.",
       "Entonces pronunció las palabras que hoy figuran grabadas en la Cámara Central de la Sociedad: \"No debe gobernar el hombre. Debe gobernar el propósito.\"",
@@ -145,6 +155,7 @@ export const historyBooks = [
     roman: "V",
     shortTitle: "La Ascensión",
     title: "De la Gran Ascensión",
+    gem: { name: "Zafiro",     base: "#60a5fa", glow: "rgba(96,165,250,0.45)",  bg: "rgba(96,165,250,0.12)",  subtle: "rgba(96,165,250,0.06)"  },
     paragraphs: [
       "Hubo un momento en el que el mundo dejó de ser un lugar habitable. No ocurrió de golpe; fue algo mucho más lento, silencioso y, precisamente por eso, más implacable. Las regiones seguras se fueron reduciendo año tras año, como si el propio mundo estuviera retirando poco a poco las condiciones que permitían la vida estable. Allí donde antes había bosques fértiles comenzaron a aparecer zonas impredecibles; donde había ciudades, surgían irregularidades en el terreno y alteraciones en el comportamiento de la materia. La superficie entera parecía entrar en un estado de inestabilidad progresiva.",
       "Durante generaciones, la humanidad intentó resistir bajo la guía de la Sociedad. Cada región perdida reducía no solo el territorio habitable, sino también el margen de error. El mundo se hacía más pequeño cada año.",
@@ -159,6 +170,7 @@ export const historyBooks = [
     roman: "VI",
     shortTitle: "El Sacrificio",
     title: "Del Sacrificio Final",
+    gem: { name: "Rubí",       base: "#f87171", glow: "rgba(248,113,113,0.45)", bg: "rgba(248,113,113,0.12)", subtle: "rgba(248,113,113,0.06)" },
     paragraphs: [
       "Cuando la Ciudad del Cielo estuvo terminada, el Primer Estabilizador reunió a los Sellos. Les reveló una verdad sagrada que nunca fue registrada en los anales públicos. Aquella noche los cielos se oscurecieron y los cristales de toda la humanidad comenzaron a emitir una única frecuencia luminosa.",
       "El Primer Estabilizador ascendió hasta el Núcleo Central y nadie volvió a verlo. Los textos oficiales afirman que entregó su existencia para convertirse en parte de la Ciudad misma. Su conciencia se fusionó con los sistemas de estabilización y su voluntad se convirtió en el fundamento invisible de la civilización.",
@@ -169,6 +181,7 @@ export const historyBooks = [
     roman: "VII",
     shortTitle: "Los Pecados",
     title: "De los Pecados contra la Estabilidad",
+    gem: { name: "Amatista",   base: "#a78bfa", glow: "rgba(167,139,250,0.45)", bg: "rgba(167,139,250,0.12)", subtle: "rgba(167,139,250,0.06)" },
     paragraphs: [
       "Existen siete pecados que alimentan el Desequilibrio: la Discordia, la Ambición, la Codicia, la Negligencia, la Desobediencia, la Ignorancia Voluntaria y la Duda.",
       "La Duda es considerada la más peligrosa de todas. Porque quien duda de la Estabilidad abre la puerta al caos, y quien abre la puerta al caos pone en riesgo a toda la humanidad.",
@@ -178,6 +191,7 @@ export const historyBooks = [
     roman: "VIII",
     shortTitle: "El Retorno",
     title: "De la Promesa del Retorno",
+    gem: { name: "Ámbar",      base: "#fbbf24", glow: "rgba(251,191,36,0.45)",  bg: "rgba(251,191,36,0.12)",  subtle: "rgba(251,191,36,0.06)"  },
     paragraphs: [
       "Los escritos más antiguos afirman que el Primer Estabilizador no murió; permanece dormido, observando y esperando. Y cuando llegue la Última Inestabilidad, cuando las Grietas se abran por completo y el Desequilibrio reclame el mundo, regresará.",
       "Entonces descenderá desde el Corazón de la Ciudad, portando el Primer Cristal, y conducirá nuevamente a la humanidad hacia la estabilidad eterna. Hasta ese día, la Sociedad custodiará su legado.",
