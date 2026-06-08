@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Marcellus&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --arcane: 110 231 216;
+    --relic: 198 161 91;
+    --void: 15 17 21;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: #0a0b0f;
+  }
+
+  body {
+    min-height: 100vh;
+    /* Dark stone atmosphere — no modern grid */
+    background:
+      radial-gradient(ellipse 90% 60% at 50% -8%, rgba(110, 231, 216, 0.11), transparent 56%),
+      radial-gradient(ellipse 60% 40% at 88% 14%, rgba(198, 161, 91, 0.07), transparent 44%),
+      radial-gradient(ellipse 50% 50% at 12% 70%, rgba(110, 231, 216, 0.04), transparent 38%),
+      linear-gradient(180deg, #0c0e13 0%, #0a0b0f 50%, #07080b 100%);
+    color: #cdd8db;
+    font-family: "Alegreya", serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Grain/parchment texture */
+  body::before {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.032;
+  }
+
+  /* Deep vignette — edges darker, medieval depth */
+  body::after {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background: radial-gradient(ellipse at 50% 38%, transparent 24%, rgba(0, 0, 0, 0.76) 100%);
+  }
+
+  ::selection {
+    color: #071112;
+    background: rgba(110, 231, 216, 0.82);
+  }
+
+  /* Smooth transitions on interactive elements */
+  a,
+  button {
+    transition:
+      color 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease,
+      transform 220ms ease,
+      opacity 220ms ease;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid rgb(var(--arcane));
+    outline-offset: 4px;
+  }
+}
+
+@layer components {
+  /* ---- Ritual border: stone archway feel, not glass ---- */
+  .ritual-border {
+    position: relative;
+    border: 1px solid rgba(110, 231, 216, 0.13);
+    background:
+      linear-gradient(160deg, rgba(255, 255, 255, 0.025), transparent 32%),
+      rgba(10, 11, 15, 0.88);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      inset 0 0 60px rgba(0, 0, 0, 0.4),
+      0 8px 40px rgba(0, 0, 0, 0.55);
+  }
+
+  .ritual-border::before,
+  .ritual-border::after {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    content: "";
+    border-color: rgba(198, 161, 91, 0.52);
+  }
+
+  .ritual-border::before {
+    top: 10px;
+    left: 10px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .ritual-border::after {
+    right: 10px;
+    bottom: 10px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+
+  /* ---- Codex panel: no-glass, angular manuscript style ---- */
+  .codex-panel {
+    position: relative;
+    border: 1px solid rgba(198, 161, 91, 0.12);
+    background: rgba(10, 11, 15, 0.92);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.03),
+      0 4px 32px rgba(0, 0, 0, 0.55);
+  }
+
+  .codex-panel::before,
+  .codex-panel::after {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    content: "";
+    border-color: rgba(198, 161, 91, 0.48);
+  }
+
+  .codex-panel::before {
+    top: 10px;
+    left: 10px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .codex-panel::after {
+    right: 10px;
+    bottom: 10px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+
+  /* ---- Sigil divider: ornamental line with central glyph ---- */
+  .sigil-divider {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    color: rgba(198, 161, 91, 0.72);
+  }
+
+  .sigil-divider::before,
+  .sigil-divider::after {
+    height: 1px;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.44), transparent);
+  }
+
+  /* ---- Ritual buttons — angular, carved stone feel ---- */
+  .btn-ritual {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.875rem;
+    font-family: "Marcellus", serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    border: 1px solid;
+    transition:
+      color 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .btn-ritual::before,
+  .btn-ritual::after {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    content: "";
+    opacity: 0.7;
+    transition: opacity 220ms ease;
+  }
+
+  .btn-ritual:hover::before,
+  .btn-ritual:hover::after {
+    opacity: 1;
+  }
+
+  .btn-ritual::before {
+    top: 5px;
+    left: 5px;
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+
+  .btn-ritual::after {
+    right: 5px;
+    bottom: 5px;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .btn-ritual-primary {
+    color: #d7fffa;
+    border-color: rgba(110, 231, 216, 0.36);
+    background: rgba(110, 231, 216, 0.07);
+  }
+
+  .btn-ritual-primary:hover {
+    border-color: rgba(110, 231, 216, 0.6);
+    background: rgba(110, 231, 216, 0.12);
+    box-shadow: 0 0 32px rgba(110, 231, 216, 0.18);
+  }
+
+  .btn-ritual-secondary {
+    color: #c6a15b;
+    border-color: rgba(198, 161, 91, 0.34);
+    background: rgba(198, 161, 91, 0.04);
+  }
+
+  .btn-ritual-secondary:hover {
+    border-color: rgba(198, 161, 91, 0.58);
+    background: rgba(198, 161, 91, 0.08);
+    box-shadow: 0 0 28px rgba(198, 161, 91, 0.14);
+  }
+
+  /* ---- Drop cap for lore text ---- */
+  .lore-dropcap::first-letter {
+    float: left;
+    margin-right: 0.22em;
+    margin-top: 0.05em;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3.6em;
+    font-weight: 700;
+    line-height: 0.78;
+    color: rgba(198, 161, 91, 0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

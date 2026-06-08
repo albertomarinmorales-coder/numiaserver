@@ -1,0 +1,48 @@
+---
+import RitualButton from "@components/RitualButton.astro";
+---
+
+<section class="relative isolate overflow-hidden px-5 py-24 sm:px-8 sm:py-28 lg:py-36">
+  <div class="absolute inset-0 -z-10 bg-radial-sanctum"></div>
+  <div class="absolute left-1/2 top-16 -z-10 size-[34rem] -translate-x-1/2 rounded-full border border-arcane/10 bg-arcane/[0.035] blur-3xl"></div>
+  <div class="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-void to-transparent"></div>
+
+  <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+    <div class="animate-fade-up">
+      <p class="font-display text-xs uppercase tracking-[0.52em] text-relic">
+        Archivo prohibido de la Sociedad
+      </p>
+      <h1 class="mt-6 max-w-4xl font-display text-5xl leading-[0.96] text-mist sm:text-6xl lg:text-7xl">
+        Donde la fe se cristaliza, el mundo aprende a permanecer.
+      </h1>
+      <p class="mt-7 max-w-2xl text-xl leading-9 text-stone/86">
+        Un códice oscuro sobre el Salvador, los Seis Sellos y la doctrina que elevó a la
+        humanidad sobre una tierra que ya no podía recordar su propia forma.
+      </p>
+      <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+        <RitualButton href="/historia">Abrir la historia</RitualButton>
+        <RitualButton href="/dogma" variant="secondary">Leer el dogma</RitualButton>
+      </div>
+    </div>
+
+    <div class="ritual-border relative min-h-[30rem] overflow-hidden rounded-[2.2rem] p-8 shadow-2xl shadow-black/40">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(110,231,216,0.18),transparent_32%),linear-gradient(180deg,transparent,rgba(0,0,0,0.42))]"></div>
+      <div class="absolute left-1/2 top-1/2 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-arcane/25 shadow-arcane-soft"></div>
+      <div class="absolute left-1/2 top-1/2 size-48 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-relic/30"></div>
+      <div class="absolute left-1/2 top-1/2 size-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-arcane/12 blur-xl animate-slow-pulse"></div>
+
+      <div class="relative z-10 flex h-full min-h-[26rem] flex-col justify-between">
+        <div class="flex justify-between text-xs uppercase tracking-[0.3em] text-stone/55">
+          <span>Numia</span>
+          <span>VI Sellos</span>
+        </div>
+        <div class="mx-auto grid size-28 place-items-center rounded-full border border-arcane/35 bg-arcane/10 font-display text-5xl text-arcane shadow-arcane-soft">
+          ✧
+        </div>
+        <blockquote class="mx-auto max-w-sm text-center font-scripture text-2xl leading-9 text-mist">
+          "No debe gobernar el hombre. Debe gobernar el propósito."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,730 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Numia — Servidor de Rol"
+  description="Numia. Un servidor de rol ambientado en un mundo sostenido por cristales, fe y la voluntad inquebrantable de la Sociedad."
+>
+  <!-- ══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-title">
+
+    <!-- Deep atmospheric glows -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="glow glow-arcane"></div>
+      <div class="glow glow-relic"></div>
+      <div class="glow glow-cold"></div>
+      <div class="hero-vignette"></div>
+    </div>
+
+    <!-- Two-column inner layout -->
+    <div class="hero-inner">
+
+      <!-- ── LEFT: text ── -->
+      <div class="hero-text animate-fade-up">
+
+        <!-- Top badge -->
+        <div class="hero-badge" aria-hidden="true">
+          <span class="badge-dot"></span>
+          <span class="badge-label">Servidor de Rol · Fantasía Medieval</span>
+          <span class="badge-dot"></span>
+        </div>
+
+        <!-- Title -->
+        <h1 id="hero-title" class="hero-title">
+          <span class="title-word">Nu</span><span class="title-word title-accent">mia</span>
+        </h1>
+
+        <!-- Decorative rule -->
+        <div class="hero-rule" aria-hidden="true">
+          <span class="rule-line-long"></span>
+          <span class="rule-glyph">⬡</span>
+        </div>
+
+        <!-- Tagline -->
+        <p class="hero-tagline">
+          Un mundo en el umbral.<br />
+          Una ciudad que desafía la caída.
+        </p>
+
+        <!-- Body -->
+        <p class="hero-body">
+          En las capas superiores de la atmósfera, suspendida por cristales de energía
+          pura, existe una civilización que sobrevivió al colapso del mundo inferior.
+          Todo cuanto eres en este mundo comienza aquí.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-actions">
+          <a href="#galeria" class="cta-primary">
+            <span>Explorar el mundo</span>
+            <span class="cta-arrow" aria-hidden="true">↓</span>
+          </a>
+          <a href="/historia" class="cta-secondary">La historia</a>
+        </div>
+
+        <!-- Stat strip -->
+        <div class="hero-stats" aria-label="Datos del servidor">
+          <div class="stat">
+            <span class="stat-value">VIII</span>
+            <span class="stat-label">Libros</span>
+          </div>
+          <div class="stat-sep" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat-value">VI</span>
+            <span class="stat-label">Sellos</span>
+          </div>
+          <div class="stat-sep" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat-value">I</span>
+            <span class="stat-label">Ciudad</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: image placeholder ── -->
+      <div class="hero-img-slot" aria-label="Imagen principal">
+        <!-- Reemplazar con <img src="..." alt="..." class="hero-img" /> -->
+        <span class="panel-corner panel-corner-tl" aria-hidden="true"></span>
+        <span class="panel-corner panel-corner-tr" aria-hidden="true"></span>
+        <span class="panel-corner panel-corner-bl" aria-hidden="true"></span>
+        <span class="panel-corner panel-corner-br" aria-hidden="true"></span>
+        <span class="hero-img-glyph" aria-hidden="true">⬡</span>
+      </div>
+
+    </div><!-- /hero-inner -->
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line animate-slow-pulse"></div>
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="hero-fade" aria-hidden="true"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       BENTO GRID — 7 image placeholders
+  ══════════════════════════════════════════════════════ -->
+  <section id="galeria" class="bento-section" aria-label="Galería del mundo">
+    <div class="bento-grid">
+
+      <!-- 1 — wide left, row 1 -->
+      <div class="img-slot slot-1" aria-label="Imagen 1">
+        <div class="slot-inner slot-arcane">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+          <!-- Reemplazar con <img src="..." alt="..." class="slot-img" /> -->
+        </div>
+      </div>
+
+      <!-- 2 — right, row 1 -->
+      <div class="img-slot slot-2" aria-label="Imagen 2">
+        <div class="slot-inner slot-neutral">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+        </div>
+      </div>
+
+      <!-- 3 — left, row 2 -->
+      <div class="img-slot slot-3" aria-label="Imagen 3">
+        <div class="slot-inner slot-relic">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+        </div>
+      </div>
+
+      <!-- 4 — center, row 2 -->
+      <div class="img-slot slot-4" aria-label="Imagen 4">
+        <div class="slot-inner slot-arcane-soft">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+        </div>
+      </div>
+
+      <!-- 5 — right, row 2 -->
+      <div class="img-slot slot-5" aria-label="Imagen 5">
+        <div class="slot-inner slot-neutral">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+        </div>
+      </div>
+
+      <!-- 6 — left, row 3 -->
+      <div class="img-slot slot-6" aria-label="Imagen 6">
+        <div class="slot-inner slot-neutral">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+        </div>
+      </div>
+
+      <!-- 7 — wide right, row 3 -->
+      <div class="img-slot slot-7" aria-label="Imagen 7">
+        <div class="slot-inner slot-relic">
+          <span class="slot-glyph" aria-hidden="true">⬡</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ════════════════════════════════════════════
+     HERO
+  ════════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+    overflow: hidden;
+    padding: 6rem 1.5rem 8rem;
+  }
+
+  /* ── Background glows ── */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(7rem);
+    pointer-events: none;
+  }
+
+  .glow-arcane {
+    width: 55rem; height: 55rem;
+    top: 40%; left: 62%;
+    transform: translate(-50%, -50%);
+    background: rgba(110, 231, 216, 0.075);
+  }
+
+  .glow-relic {
+    width: 32rem; height: 32rem;
+    top: 35%; left: 58%;
+    transform: translate(-50%, -50%);
+    background: rgba(198, 161, 91, 0.055);
+  }
+
+  .glow-cold {
+    width: 28rem; height: 28rem;
+    top: 50%; left: 18%;
+    transform: translate(-50%, -50%);
+    background: rgba(110, 231, 216, 0.038);
+    filter: blur(8rem);
+  }
+
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 110% 90% at 62% 40%, transparent 28%, rgba(4, 5, 7, 0.85) 100%),
+      linear-gradient(to right, rgba(4, 5, 7, 0.35), transparent 30%);
+  }
+
+  /* ── Two-column inner ── */
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: stretch;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* ── LEFT: Text ── */
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: fit-content;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(198, 161, 91, 0.2);
+    background: rgba(198, 161, 91, 0.04);
+  }
+
+  .badge-dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(198, 161, 91, 0.65);
+  }
+
+  .badge-label {
+    font-family: "Marcellus", serif;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    color: rgba(198, 161, 91, 0.68);
+  }
+
+  /* Title */
+  .hero-title {
+    margin-top: 1.75rem;
+    font-family: "Marcellus", serif;
+    font-size: clamp(5rem, 9vw, 8.5rem);
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: rgba(215, 255, 250, 0.97);
+  }
+
+  .title-word {
+    display: inline;
+  }
+
+  .title-accent {
+    color: rgba(110, 231, 216, 0.92);
+    text-shadow:
+      0 0 60px rgba(110, 231, 216, 0.45),
+      0 0 20px rgba(110, 231, 216, 0.25),
+      0 0 8px rgba(110, 231, 216, 0.15);
+  }
+
+  /* Rule */
+  .hero-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: 1.75rem;
+  }
+
+  .rule-line-long {
+    display: block;
+    width: 7rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(198, 161, 91, 0.55), transparent);
+    flex-shrink: 0;
+  }
+
+  .rule-glyph {
+    font-family: "Marcellus", serif;
+    font-size: 0.9rem;
+    color: rgba(198, 161, 91, 0.65);
+    flex-shrink: 0;
+  }
+
+  /* Tagline */
+  .hero-tagline {
+    margin-top: 1.5rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.55;
+    color: rgba(215, 255, 250, 0.88);
+  }
+
+  /* Body */
+  .hero-body {
+    margin-top: 1rem;
+    font-family: "Alegreya", serif;
+    font-size: 1.05rem;
+    line-height: 1.82;
+    color: rgba(148, 163, 184, 0.72);
+    max-width: 44ch;
+  }
+
+  /* CTAs */
+  .hero-actions {
+    margin-top: 2.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 2rem;
+    font-family: "Marcellus", serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: rgba(215, 255, 250, 0.92);
+    border: 1px solid rgba(110, 231, 216, 0.3);
+    background: rgba(110, 231, 216, 0.08);
+    transition: border-color 220ms, background 220ms, box-shadow 220ms;
+  }
+
+  .cta-primary::before, .cta-primary::after {
+    content: "";
+    position: absolute;
+    width: 11px; height: 11px;
+    border-color: rgba(198, 161, 91, 0.5);
+  }
+
+  .cta-primary::before { top: 5px; left: 5px; border-top: 1px solid; border-left: 1px solid; }
+  .cta-primary::after  { bottom: 5px; right: 5px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  .cta-primary:hover {
+    border-color: rgba(110, 231, 216, 0.55);
+    background: rgba(110, 231, 216, 0.14);
+    box-shadow: 0 0 32px rgba(110, 231, 216, 0.2);
+  }
+
+  .cta-arrow {
+    font-size: 0.75rem;
+    opacity: 0.6;
+  }
+
+  .cta-secondary {
+    font-family: "Marcellus", serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: rgba(198, 161, 91, 0.65);
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(198, 161, 91, 0.28);
+    transition: color 200ms, border-color 200ms;
+  }
+
+  .cta-secondary:hover {
+    color: rgba(198, 161, 91, 1);
+    border-color: rgba(198, 161, 91, 0.65);
+  }
+
+  /* Stat strip */
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(198, 161, 91, 0.1);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .stat-value {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(198, 161, 91, 0.8);
+  }
+
+  .stat-label {
+    font-family: "Marcellus", serif;
+    font-size: 0.52rem;
+    text-transform: uppercase;
+    letter-spacing: 0.36em;
+    color: rgba(148, 163, 184, 0.45);
+  }
+
+  .stat-sep {
+    width: 1px;
+    height: 2rem;
+    background: rgba(198, 161, 91, 0.15);
+    flex-shrink: 0;
+  }
+
+  /* ── RIGHT: image placeholder ── */
+  .hero-img-slot {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    align-self: stretch;         /* match text column height */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(198, 161, 91, 0.12);
+    background:
+      radial-gradient(circle at 38% 42%, rgba(110, 231, 216, 0.08), transparent 55%),
+      radial-gradient(circle at 70% 70%, rgba(198, 161, 91, 0.05), transparent 45%),
+      linear-gradient(150deg, #100e09 0%, #09080a 100%);
+    overflow: hidden;
+  }
+
+  /* Panel corners */
+  .panel-corner {
+    position: absolute;
+    width: 22px; height: 22px;
+    border-color: rgba(198, 161, 91, 0.4);
+  }
+  .panel-corner-tl { top: 12px; left: 12px; border-top: 1px solid; border-left: 1px solid; }
+  .panel-corner-tr { top: 12px; right: 12px; border-top: 1px solid; border-right: 1px solid; }
+  .panel-corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid; border-left: 1px solid; }
+  .panel-corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  .hero-img-glyph {
+    font-family: "Marcellus", serif;
+    font-size: 2rem;
+    color: rgba(198, 161, 91, 0.12);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* When a real image is placed */
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2rem;
+    z-index: 3;
+  }
+
+  .scroll-line {
+    display: block;
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(180deg, rgba(198, 161, 91, 0.5), transparent);
+  }
+
+  .hero-fade {
+    position: absolute;
+    inset-inline: 0; bottom: 0;
+    height: 16rem;
+    background: linear-gradient(to top, #09080a, transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* ── Tablet: slightly narrower panel ── */
+  @media (max-width: 1024px) and (min-width: 768px) {
+    .hero-inner {
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2.5rem;
+    }
+  }
+
+  /* ── Mobile: single column ── */
+  @media (max-width: 767px) {
+    .hero {
+      padding: 5rem 1.25rem 7rem;
+      text-align: center;
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-badge, .hero-rule, .hero-stats {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-badge {
+      justify-content: center;
+    }
+
+    .hero-rule {
+      justify-content: center;
+    }
+
+    .rule-line-long {
+      width: 4rem;
+    }
+
+    .hero-body {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-stats {
+      justify-content: center;
+    }
+
+    .hero-img-slot {
+      aspect-ratio: 16 / 9;
+      min-height: unset;
+      align-self: auto;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 18vw, 6.5rem);
+    }
+
+    .hero-scroll {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ════════════════════════════════════════════
+     BENTO GRID
+  ════════════════════════════════════════════ */
+  .bento-section {
+    padding: 3rem 1.25rem 5rem;
+  }
+
+  @media (min-width: 640px) {
+    .bento-section { padding: 4rem 2rem 6rem; }
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 280px 220px 280px;
+    gap: 10px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Grid placement */
+  .slot-1 { grid-column: 1 / 3; grid-row: 1; }
+  .slot-2 { grid-column: 3;     grid-row: 1; }
+  .slot-3 { grid-column: 1;     grid-row: 2; }
+  .slot-4 { grid-column: 2;     grid-row: 2; }
+  .slot-5 { grid-column: 3;     grid-row: 2; }
+  .slot-6 { grid-column: 1;     grid-row: 3; }
+  .slot-7 { grid-column: 2 / 4; grid-row: 3; }
+
+  /* Base image slot */
+  .img-slot {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slot-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(198, 161, 91, 0.1);
+    transition: border-color 280ms ease;
+  }
+
+  .img-slot:hover .slot-inner {
+    border-color: rgba(198, 161, 91, 0.24);
+  }
+
+  /* Slot tint variants */
+  .slot-arcane {
+    background:
+      radial-gradient(circle at 35% 40%, rgba(110, 231, 216, 0.1), transparent 55%),
+      linear-gradient(145deg, #0f100d 0%, #0a0b0f 100%);
+  }
+
+  .slot-arcane:hover {
+    box-shadow: inset 0 0 60px rgba(110, 231, 216, 0.07);
+  }
+
+  .slot-arcane-soft {
+    background:
+      radial-gradient(circle at 65% 60%, rgba(110, 231, 216, 0.07), transparent 50%),
+      linear-gradient(145deg, #0c0d0a 0%, #090a0e 100%);
+  }
+
+  .slot-relic {
+    background:
+      radial-gradient(circle at 60% 35%, rgba(198, 161, 91, 0.1), transparent 52%),
+      linear-gradient(145deg, #100e09 0%, #0a0908 100%);
+  }
+
+  .slot-relic:hover {
+    box-shadow: inset 0 0 60px rgba(198, 161, 91, 0.06);
+  }
+
+  .slot-neutral {
+    background: linear-gradient(145deg, #0d0c0a 0%, #090909 100%);
+  }
+
+  /* Placeholder glyph */
+  .slot-glyph {
+    font-family: "Marcellus", serif;
+    font-size: 1.5rem;
+    color: rgba(198, 161, 91, 0.13);
+    transition: color 280ms ease, text-shadow 280ms ease;
+    user-select: none;
+  }
+
+  .img-slot:hover .slot-glyph {
+    color: rgba(198, 161, 91, 0.28);
+  }
+
+  /* Corner marks on each slot */
+  .slot-inner::before,
+  .slot-inner::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: rgba(198, 161, 91, 0.22);
+    pointer-events: none;
+    transition: border-color 280ms ease;
+  }
+
+  .img-slot:hover .slot-inner::before,
+  .img-slot:hover .slot-inner::after {
+    border-color: rgba(198, 161, 91, 0.45);
+  }
+
+  .slot-inner::before {
+    top: 8px; left: 8px;
+    border-top: 1px solid; border-left: 1px solid;
+  }
+
+  .slot-inner::after {
+    bottom: 8px; right: 8px;
+    border-bottom: 1px solid; border-right: 1px solid;
+  }
+
+  /* When a real <img> is placed inside .slot-inner */
+  .slot-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── Mobile: 2-col grid ── */
+  @media (max-width: 639px) {
+    .bento-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 180px 160px 160px 180px;
+      gap: 6px;
+    }
+
+    .slot-1 { grid-column: 1 / 3; grid-row: 1; }
+    .slot-2 { grid-column: 1;     grid-row: 2; }
+    .slot-3 { grid-column: 2;     grid-row: 2; }
+    .slot-4 { grid-column: 1;     grid-row: 3; }
+    .slot-5 { grid-column: 2;     grid-row: 3; }
+    .slot-6 { grid-column: 1;     grid-row: 4; }
+    .slot-7 { grid-column: 2;     grid-row: 4; }
+  }
+
+  /* ── Tablet: keep 3-col, reduce heights ── */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .bento-grid {
+      grid-template-rows: 220px 180px 220px;
+    }
+  }
+</style>

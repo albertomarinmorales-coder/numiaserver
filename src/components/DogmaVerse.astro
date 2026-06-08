@@ -1,0 +1,17 @@
+---
+interface Props {
+  verse: string;
+  index: number;
+}
+
+const { verse, index } = Astro.props;
+---
+
+<p class="group grid gap-4 border-b border-white/10 py-5 text-lg leading-9 text-stone/88 sm:grid-cols-[4rem_1fr]">
+  <span class="font-display text-sm uppercase tracking-[0.28em] text-relic/70">
+    {String(index + 1).padStart(2, "0")}
+  </span>
+  <span class="font-scripture text-2xl leading-9 text-mist/90 transition group-hover:text-arcane">
+    {verse}
+  </span>
+</p>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  span?: string;
+}
+
+const { eyebrow, title, text, span = "" } = Astro.props;
+---
+
+<article
+  class:list={[
+    "ritual-border group min-h-64 overflow-hidden p-6 shadow-2xl transition duration-300 hover:-translate-y-0.5 hover:border-arcane/32 hover:shadow-arcane-soft sm:p-7",
+    span,
+  ]}
+>
+  <div class="flex h-full flex-col justify-between gap-10">
+    <div>
+      {eyebrow && <p class="font-display text-xs uppercase tracking-[0.34em] text-relic">{eyebrow}</p>}
+      <h3 class="mt-4 font-display text-2xl text-mist sm:text-3xl">{title}</h3>
+      <p class="mt-5 text-base leading-8 text-stone/82">{text}</p>
+    </div>
+    <div class="flex items-center justify-between text-arcane/70">
+      <span class="h-px flex-1 bg-gradient-to-r from-arcane/40 to-transparent"></span>
+      <span class="ml-4 font-display text-xl transition group-hover:text-arcane">✦</span>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,17 @@
+---
+import LoreCard from "@components/LoreCard.astro";
+import { landingRelics } from "@data/lore";
+---
+
+<div class="grid gap-5 lg:grid-cols-3">
+  {
+    landingRelics.map((relic) => (
+      <LoreCard
+        eyebrow={relic.eyebrow}
+        title={relic.title}
+        text={relic.text}
+        span={relic.span}
+      />
+    ))
+  }
+</div>

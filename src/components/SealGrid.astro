@@ -1,0 +1,25 @@
+---
+import { seals } from "@data/lore";
+---
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {
+    seals.map((seal) => (
+      <article class="rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition hover:border-arcane/30 hover:bg-arcane/[0.045]">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="font-display text-xs uppercase tracking-[0.32em] text-relic">
+              {seal.virtue}
+            </p>
+            <h3 class="mt-3 font-display text-2xl text-mist">{seal.title}</h3>
+            <p class="mt-1 text-sm text-stone/70">{seal.name}</p>
+          </div>
+          <span class="grid size-11 shrink-0 place-items-center rounded-full border border-arcane/25 bg-arcane/10 font-display text-arcane">
+            {seal.symbol}
+          </span>
+        </div>
+        <p class="mt-6 font-scripture text-xl leading-8 text-stone/86">"{seal.phrase}"</p>
+      </article>
+    ))
+  }
+</div>

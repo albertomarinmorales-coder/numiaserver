@@ -1,0 +1,75 @@
+---
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/historia", label: "Historia" },
+  { href: "/dogma", label: "Dogma" },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b border-relic/10 bg-[#07080b]/88 backdrop-blur-md">
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
+    aria-label="Navegación principal"
+  >
+    <!-- Wordmark -->
+    <a href="/" class="group flex items-center gap-4" aria-label="Ir al inicio">
+      <span
+        class="grid size-9 shrink-0 place-items-center border border-arcane/28 bg-arcane/[0.07] font-display text-sm text-arcane"
+        aria-hidden="true"
+      >
+        ✦
+      </span>
+      <span class="hidden leading-snug sm:block">
+        <span class="block font-display text-sm uppercase tracking-[0.3em] text-mist">
+          Conan Roleplay Server
+        </span>
+        <span class="block text-[10px] uppercase tracking-[0.28em] text-relic/72">
+          Nombre en construcción
+        </span>
+      </span>
+    </a>
+
+    <!-- Links: no pill, plain ornamental row -->
+    <div class="flex items-center gap-1" role="list">
+      {
+        links.map((link, i) => {
+          const isActive =
+            link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+
+          return (
+            <>
+              {i > 0 && (
+                <span
+                  class="select-none px-1 font-display text-relic/28"
+                  aria-hidden="true"
+                >
+                  ·
+                </span>
+              )}
+              <a
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                role="listitem"
+                class:list={[
+                  "relative px-2 py-2 font-display text-xs uppercase tracking-[0.28em]",
+                  isActive
+                    ? "text-arcane after:absolute after:inset-x-2 after:bottom-0 after:h-px after:bg-arcane/60"
+                    : "text-stone/80 hover:text-mist",
+                ]}
+              >
+                {link.label}
+              </a>
+            </>
+          );
+        })
+      }
+    </div>
+  </nav>
+  <!-- Subtle relic shimmer under the navbar -->
+  <div
+    class="pointer-events-none h-px w-full bg-gradient-to-r from-transparent via-relic/20 to-transparent"
+    aria-hidden="true"
+  ></div>
+</header>
