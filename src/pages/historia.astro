@@ -86,8 +86,8 @@ const total = historyBooks.length;
                 <>
                   <p class="dropcap">{book.paragraphs[0]}</p>
                   <div class="sins-grid">
-                    {book.sins.map((sin: { order: string; name: string; text: string }) => (
-                      <div class="sin-card">
+                    {book.sins.map((sin: { order: string; name: string; text: string }, si: number) => (
+                      <div class:list={["sin-card", si === book.sins.length - 1 && "sin-card--wide"]}>
                         <div class="sin-card-header">
                           <span class="sin-order">{sin.order}</span>
                           <span class="sin-name">{sin.name}</span>
@@ -481,6 +481,10 @@ const total = historyBooks.length;
     flex-direction: column;
     gap: 0.55rem;
     transition: background 0.2s, border-color 0.2s;
+  }
+
+  .sin-card--wide {
+    grid-column: 1 / -1;
   }
 
   .sin-card:hover {
