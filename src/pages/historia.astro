@@ -82,16 +82,37 @@ const total = historyBooks.length;
 
             <!-- Scrollable body -->
             <div class="chapter-body" tabindex="0">
-              {book.paragraphs.map((para, pi) => (
-                <p class:list={[pi === 0 && "dropcap"]}>{para}</p>
-              ))}
-
-              {book.list && (
-                <ul class="chapter-roster">
-                  {book.list.map((item) => (
-                    <li class="roster-item">{item}</li>
+              {book.sins ? (
+                <>
+                  <p class="dropcap">{book.paragraphs[0]}</p>
+                  <div class="sins-grid">
+                    {book.sins.map((sin: { order: string; name: string; text: string }) => (
+                      <div class="sin-card">
+                        <div class="sin-card-header">
+                          <span class="sin-order">{sin.order}</span>
+                          <span class="sin-name">{sin.name}</span>
+                        </div>
+                        <p class="sin-text">{sin.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {book.paragraphs.slice(1).map((para: string) => (
+                    <p>{para}</p>
                   ))}
-                </ul>
+                </>
+              ) : (
+                <>
+                  {book.paragraphs.map((para: string, pi: number) => (
+                    <p class:list={[pi === 0 && "dropcap"]}>{para}</p>
+                  ))}
+                  {book.list && (
+                    <ul class="chapter-roster">
+                      {book.list.map((item: string) => (
+                        <li class="roster-item">{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </>
               )}
             </div>
 
@@ -441,6 +462,66 @@ const total = historyBooks.length;
     margin-bottom: 1.35rem;
   }
 
+  /* ── Sin cards (Book VII) ── */
+  .sins-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0 1.75rem;
+    max-width: 70ch;
+  }
+
+  .sin-card {
+    border: 1px solid var(--gem-subtle, rgba(167,139,250,0.06));
+    border-left: 3px solid var(--gem-base, #a78bfa);
+    background: var(--gem-subtle, rgba(167,139,250,0.06));
+    border-radius: 4px;
+    padding: 1rem 1.1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .sin-card:hover {
+    background: var(--gem-bg, rgba(167,139,250,0.12));
+    border-left-color: var(--gem-glow, rgba(167,139,250,0.6));
+  }
+
+  .sin-card-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .sin-order {
+    font-family: "Marcellus", serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gem-base, #a78bfa);
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  .sin-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gem-base, #a78bfa);
+    line-height: 1.2;
+  }
+
+  .sin-text {
+    font-family: "Alegreya", serif;
+    font-size: 0.9rem !important;
+    line-height: 1.75 !important;
+    color: rgba(205, 216, 219, 0.78) !important;
+    margin-bottom: 0 !important;
+    max-width: none !important;
+  }
+
   /* ── Sticky image column ── */
   .chapter-image-col {
     grid-column: 2;
@@ -714,6 +795,10 @@ const total = historyBooks.length;
 
     .chapter-nav {
       padding: 0.75rem 1.25rem;
+    }
+
+    .sins-grid {
+      grid-template-columns: 1fr;
     }
   }
 
