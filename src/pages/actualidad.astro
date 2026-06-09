@@ -5,8 +5,10 @@ import { project } from "@data/lore";
 const sections = [
   {
     roman: "I",
+    shortTitle: "La Doctrina",
     title: "La Doctrina",
     eyebrow: "El Tomo de la Ascensión",
+    gem: { base: "#c6a15b", glow: "rgba(198,161,91,0.50)",  bg: "rgba(198,161,91,0.15)",  subtle: "rgba(198,161,91,0.07)"  },
     paragraphs: [
       "Nadie recuerda ya cómo era realmente el mundo antes de la Ascensión. Existen relatos, pinturas antiguas, fragmentos de archivos y algunas historias transmitidas entre generaciones, pero casi todo lo relacionado con aquella época terminó desapareciendo con el tiempo. Lo poco que se conserva está protegido por la Sociedad o escrito dentro del Tomo de la Ascensión, y para la mayoría de las personas eso es más que suficiente.",
       "Porque en la ciudad no importa tanto lo que ocurrió realmente. Importa lo que fue aceptado como verdad.",
@@ -19,8 +21,10 @@ const sections = [
   },
   {
     roman: "II",
+    shortTitle: "La Sociedad",
     title: "La Sociedad",
     eyebrow: "Gobierno y Fe",
+    gem: { base: "#3b82f6", glow: "rgba(59,130,246,0.50)",  bg: "rgba(59,130,246,0.15)",  subtle: "rgba(59,130,246,0.07)"  },
     paragraphs: [
       "Cuestionarlo no se considera simplemente una falta de fe, sino una amenaza contra el equilibrio mismo de la ciudad. Y es precisamente la Sociedad quien protege esa verdad.",
       "Desde hace siglos, la Sociedad gobierna cada aspecto de la vida en la ciudad. Sus miembros controlan la administración, el comercio, la educación, la investigación y las fuerzas de seguridad. Pero su poder no termina ahí. También son los guardianes del Tomo de la Ascensión y los únicos autorizados para interpretar su significado completo.",
@@ -32,19 +36,24 @@ const sections = [
   },
   {
     roman: "III",
+    shortTitle: "La Ciudad",
     title: "La Ciudad",
-    eyebrow: "Descripción del Mundo Flotante",
+    eyebrow: "El Mundo Flotante",
+    gem: { base: "#60a5fa", glow: "rgba(96,165,250,0.45)",  bg: "rgba(96,165,250,0.12)",  subtle: "rgba(96,165,250,0.06)"  },
     paragraphs: [
       "Aun así, la vida en la ciudad continúa. Y desde fuera, parece casi perfecta.",
       "La ciudad flota sobre un mar interminable de nubes, suspendida en el cielo mediante tecnologías que pocos comprenden por completo. Sus enormes estructuras metálicas y de piedra blanca están conectadas por puentes elevados, ascensores verticales y plataformas flotantes que se desplazan lentamente entre distritos.",
+      "Por las noches, las luces de los cristales iluminan las calles con un brillo suave y constante, haciendo que la ciudad parezca una estrella suspendida sobre el vacío.",
       "El aire es limpio. El agua nunca falta. Y el hambre, al menos en comparación con los tiempos antiguos, dejó de ser un problema.",
     ],
-    quote: "Por las noches, las luces de los cristales iluminan las calles con un brillo suave y constante, haciendo que la ciudad parezca una estrella suspendida sobre el vacío.",
+    quote: "Desde fuera, la ciudad parece casi perfecta.",
   },
   {
     roman: "IV",
+    shortTitle: "Los Cristales",
     title: "Los Cristales",
     eyebrow: "La Tecnología de la Supervivencia",
+    gem: { base: "#06b6d4", glow: "rgba(6,182,212,0.50)",   bg: "rgba(6,182,212,0.15)",   subtle: "rgba(6,182,212,0.07)"   },
     paragraphs: [
       "Gran parte de ese milagro se debe a los cristales. Según el Tomo de la Ascensión, fueron un regalo nacido de la salvación misma. Según los archivos técnicos de la Sociedad, son una fuente de energía extremadamente compleja capaz de alimentar sistemas imposibles para la tecnología antigua. La mayoría de la población no entiende cómo funcionan. Y realmente tampoco necesita hacerlo.",
       "Los cristales están presentes en cada rincón de la ciudad. Alimentan motores, sistemas de iluminación, ascensores, redes de calefacción y enormes máquinas de purificación. Algunas estructuras enteras laten gracias a ellos como si fueran corazones artificiales.",
@@ -55,8 +64,10 @@ const sections = [
   },
   {
     roman: "V",
+    shortTitle: "El Mundo Inferior",
     title: "El Mundo Inferior",
     eyebrow: "La Superficie como Mito",
+    gem: { base: "#a78bfa", glow: "rgba(167,139,250,0.45)", bg: "rgba(167,139,250,0.12)", subtle: "rgba(167,139,250,0.06)" },
     paragraphs: [
       "Para muchos ciudadanos, el mundo inferior no es más que una idea lejana. Un lugar del que se habla en ceremonias religiosas o en clases de historia, pero que casi nadie ha visto realmente.",
       "La superficie se convirtió en algo parecido a un mito. Oscura. Lejana. Prohibida.",
@@ -66,382 +77,659 @@ const sections = [
     quote: "Mirar hacia abajo nunca ha sido bien visto.",
   },
 ];
+
+const total = sections.length;
 ---
 
 <BaseLayout
   title={`Actualidad | ${project.name}`}
   description="El estado actual del mundo. La Ciudad del Cielo, su doctrina, sus cristales y la superficie olvidada."
 >
-  <!-- ══════════════════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════════════════ -->
-  <section class="actualidad-hero" aria-labelledby="actualidad-title">
-    <div class="hero-glow hero-glow--top"    aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--bottom" aria-hidden="true"></div>
-    <div class="actualidad-hero-inner">
-      <p class="hero-eyebrow">
-        <span class="eyebrow-line"></span>
-        <span>Estado del Mundo</span>
-        <span class="eyebrow-line"></span>
-      </p>
-      <h1 id="actualidad-title" class="hero-title">Actualidad</h1>
-      <p class="hero-lead">
-        En la Ciudad del Cielo, la humanidad consiguió sobrevivir a la corrupción del Desequilibrio.<br/>
-        Lo que sigue es el estado del mundo tal como es conocido por sus habitantes.
-      </p>
+  <div class="reader" role="main" aria-label="Lector de Actualidad">
+
+    <!-- ── Sidebar timeline ── -->
+    <aside class="reader-sidebar" aria-label="Índice de secciones">
+      <div class="sidebar-header">
+        <p class="sidebar-label">Estado del Mundo</p>
+        <p class="sidebar-sublabel">Actualidad</p>
+      </div>
+
+      <div class="timeline-track" aria-hidden="true">
+        <div id="track-fill" class="timeline-fill" style="height: 0%"></div>
+      </div>
+
+      <nav class="chapter-list-nav">
+        {sections.map((sec, i) => (
+          <button
+            class:list={["chapter-btn", i === 0 && "is-active"]}
+            data-chapter-btn={i}
+            aria-label={`Ir a la sección ${sec.roman}: ${sec.title}`}
+            aria-current={i === 0 ? "true" : undefined}
+            style={`--gem-base:${sec.gem.base};--gem-glow:${sec.gem.glow};--gem-bg:${sec.gem.bg};--gem-subtle:${sec.gem.subtle}`}
+          >
+            <span class="chapter-dot" aria-hidden="true">
+              <span class="chapter-dot-inner"></span>
+            </span>
+            <span class="chapter-btn-text">
+              <span class="btn-roman">Sección {sec.roman}</span>
+              <span class="btn-short">{sec.shortTitle}</span>
+            </span>
+          </button>
+        ))}
+      </nav>
+    </aside>
+
+    <!-- ── Content ── -->
+    <div class="reader-content">
+      {sections.map((sec, i) => (
+        <article
+          class:list={["chapter-panel", i === 0 && "is-active"]}
+          data-chapter={i}
+          aria-hidden={i !== 0 ? "true" : undefined}
+          style={`--gem-base:${sec.gem.base};--gem-glow:${sec.gem.glow};--gem-bg:${sec.gem.bg};--gem-subtle:${sec.gem.subtle}`}
+        >
+          <!-- Header -->
+          <header class="chapter-header">
+            <div class="chapter-header-inner">
+              <span class="chapter-roman" aria-hidden="true">{sec.roman}</span>
+              <div>
+                <p class="chapter-eyebrow">{sec.eyebrow}</p>
+                <h2 class="chapter-title">{sec.title}</h2>
+              </div>
+            </div>
+            <div class="chapter-progress-bar" aria-hidden="true">
+              <div class="chapter-progress-fill" style={`width: ${((i + 1) / total) * 100}%`}></div>
+            </div>
+          </header>
+
+          <!-- Scrollable body -->
+          <div class="chapter-body" tabindex="0">
+            {sec.paragraphs.map((para, pi) => (
+              <p class:list={[pi === 0 && "dropcap"]}>{para}</p>
+            ))}
+
+            <!-- Pull quote -->
+            <blockquote class="pull-quote">
+              <span class="quote-mark" aria-hidden="true">❝</span>
+              <p>{sec.quote}</p>
+            </blockquote>
+          </div>
+
+          <!-- Sticky image column -->
+          <div class="chapter-image-col" aria-hidden="true">
+            <div class="chapter-img-placeholder">
+              <span class="img-corner img-corner--tl"></span>
+              <span class="img-corner img-corner--tr"></span>
+              <span class="img-corner img-corner--bl"></span>
+              <span class="img-corner img-corner--br"></span>
+              <div class="img-gem-content">
+                <span class="img-gem-glyph">◆</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chapter nav -->
+          <nav class="chapter-nav" aria-label={`Navegación sección ${i + 1}`}>
+            <button class="nav-btn" data-dir="prev" disabled={i === 0 || undefined} aria-label="Sección anterior">
+              <span aria-hidden="true">←</span>
+              <span class="nav-btn-label">Anterior</span>
+            </button>
+            <div class="nav-info" aria-live="polite">
+              <span class="nav-current">{i + 1}</span>
+              <span class="nav-sep" aria-hidden="true">·</span>
+              <span class="nav-total">{total}</span>
+            </div>
+            <button class="nav-btn" data-dir="next" disabled={i === total - 1 || undefined} aria-label="Sección siguiente">
+              <span class="nav-btn-label">Siguiente</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </nav>
+        </article>
+      ))}
     </div>
-    <div class="hero-divider" aria-hidden="true">
-      <span class="divider-line"></span>
-      <span class="divider-glyph">◆</span>
-      <span class="divider-line"></span>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       SECTIONS
-  ══════════════════════════════════════════════════════ -->
-  <main id="contenido-actualidad" class="actualidad-body">
-    {sections.map((sec) => (
-      <article class="codex-section" aria-labelledby={`sec-${sec.roman}`}>
-
-        <!-- Section anchor / label -->
-        <div class="section-label" aria-hidden="true">
-          <span class="label-roman">{sec.roman}</span>
-          <span class="label-rule"></span>
-        </div>
-
-        <!-- Section header -->
-        <header class="section-header">
-          <p class="section-eyebrow">{sec.eyebrow}</p>
-          <h2 id={`sec-${sec.roman}`} class="section-title">{sec.title}</h2>
-        </header>
-
-        <!-- Prose -->
-        <div class="section-prose">
-          {sec.paragraphs.map((p, i) => (
-            <p class:list={[i === 0 && "dropcap"]}>{p}</p>
-          ))}
-        </div>
-
-        <!-- Pull quote -->
-        <blockquote class="pull-quote">
-          <span class="quote-mark" aria-hidden="true">❝</span>
-          <p>{sec.quote}</p>
-        </blockquote>
-
-      </article>
-    ))}
-
-    <!-- Colophon -->
-    <div class="colophon" aria-hidden="true">
-      <span class="colophon-line"></span>
-      <span class="colophon-glyph">⬡</span>
-      <span class="colophon-line"></span>
-    </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
-  /* ════════════════════════════════════════════
-     HERO
-  ════════════════════════════════════════════ */
-  .actualidad-hero {
-    position: relative;
-    overflow: hidden;
-    padding: 7rem 1.5rem 4rem;
-    text-align: center;
-  }
-
-  .hero-glow {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(7rem);
-  }
-
-  .hero-glow--top {
-    width: 55rem; height: 20rem;
-    top: -4rem;
-    background: radial-gradient(ellipse, rgba(60, 130, 220, 0.09), transparent 70%);
-  }
-
-  .hero-glow--bottom {
-    width: 35rem; height: 14rem;
-    bottom: 0;
-    background: radial-gradient(ellipse, rgba(198, 161, 91, 0.06), transparent 70%);
-  }
-
-  .actualidad-hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    font-family: "Marcellus", serif;
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.46em;
-    color: rgba(198, 161, 91, 0.6);
-    margin-bottom: 1.5rem;
-  }
-
-  .eyebrow-line {
-    display: block;
-    width: 3rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.4));
-  }
-
-  .eyebrow-line:last-child {
-    background: linear-gradient(90deg, rgba(198, 161, 91, 0.4), transparent);
-  }
-
-  .hero-title {
-    font-family: "Marcellus", serif;
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 1;
-    letter-spacing: 0.08em;
-    color: rgba(215, 255, 250, 0.96);
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-lead {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    line-height: 1.75;
-    color: rgba(148, 163, 184, 0.72);
-    max-width: 56ch;
-    margin: 0 auto;
-  }
-
-  .hero-divider {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
-    margin-top: 3.5rem;
-  }
-
-  .divider-line {
-    display: block;
-    width: 6rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.35), transparent);
-  }
-
-  .divider-glyph {
-    font-size: 0.55rem;
-    color: rgba(198, 161, 91, 0.55);
-  }
-
-  /* ════════════════════════════════════════════
-     BODY
-  ════════════════════════════════════════════ */
-  .actualidad-body {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 1.5rem 6rem;
-  }
-
-  /* ── Section ── */
-  .codex-section {
+  /* ── Reader layout (identical to historia) ── */
+  .reader {
     display: grid;
-    grid-template-columns: 3rem 1fr;
-    grid-template-rows: auto auto auto;
-    column-gap: 2rem;
-    row-gap: 0;
-    padding: 3.5rem 0;
-    border-bottom: 1px solid rgba(198, 161, 91, 0.08);
+    grid-template-columns: 260px 1fr;
+    height: calc(100dvh - 65px);
+    overflow: hidden;
+    background: #080c14;
   }
 
-  .codex-section:last-of-type {
-    border-bottom: none;
-  }
-
-  /* Left column: roman numeral + vertical rule */
-  .section-label {
-    grid-column: 1;
-    grid-row: 1 / 4;
+  /* ── Sidebar ── */
+  .reader-sidebar {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    padding-top: 0.25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.75rem 1.25rem 2rem 1.75rem;
+    border-right: 1px solid rgba(198, 161, 91, 0.11);
+    background: rgba(5, 7, 12, 0.97);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(198, 161, 91, 0.18) transparent;
   }
 
-  .label-roman {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    color: rgba(198, 161, 91, 0.45);
-    writing-mode: horizontal-tb;
-  }
-
-  .label-rule {
-    flex: 1;
-    width: 1px;
-    background: linear-gradient(180deg, rgba(198, 161, 91, 0.22), transparent);
-    min-height: 3rem;
-  }
-
-  /* Right column: header */
-  .section-header {
-    grid-column: 2;
-    grid-row: 1;
+  .sidebar-header {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(198, 161, 91, 0.1);
     margin-bottom: 1.5rem;
+    flex-shrink: 0;
   }
 
-  .section-eyebrow {
+  .sidebar-label {
+    font-family: "Marcellus", serif;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.44em;
+    color: rgba(198, 161, 91, 0.52);
+  }
+
+  .sidebar-sublabel {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    color: rgba(215, 255, 250, 0.75);
+    margin-top: 0.3rem;
+  }
+
+  /* Track */
+  .timeline-track {
+    position: absolute;
+    left: 1.9rem;
+    top: 7.5rem;
+    bottom: 2rem;
+    width: 1px;
+    background: rgba(198, 161, 91, 0.1);
+    pointer-events: none;
+  }
+
+  .timeline-fill {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(110, 231, 216, 0.7), rgba(198, 161, 91, 0.5));
+    transition: height 400ms ease;
+    border-radius: 1px;
+  }
+
+  /* Nav list */
+  .chapter-list-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .chapter-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    padding: 0.6rem 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    border-radius: 3px;
+    transition: background 180ms ease;
+  }
+
+  .chapter-btn:hover { background: rgba(198, 161, 91, 0.04); }
+
+  .chapter-dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px; height: 10px;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+  }
+
+  .chapter-dot-inner {
+    display: block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: rgba(9, 8, 10, 0.95);
+    transition: border-color 300ms, background 300ms, box-shadow 300ms;
+  }
+
+  .chapter-btn.is-active .chapter-dot-inner {
+    border-color: var(--gem-base);
+    background: var(--gem-bg);
+    box-shadow: 0 0 10px var(--gem-glow), 0 0 4px var(--gem-base);
+  }
+
+  .chapter-btn.is-done .chapter-dot-inner {
+    border-color: var(--gem-base);
+    background: var(--gem-subtle);
+    opacity: 0.55;
+  }
+
+  .chapter-btn-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .btn-roman {
     font-family: "Marcellus", serif;
     font-size: 0.56rem;
     text-transform: uppercase;
-    letter-spacing: 0.44em;
-    color: rgba(110, 231, 216, 0.55);
-    margin-bottom: 0.4rem;
+    letter-spacing: 0.36em;
+    color: rgba(148, 163, 184, 0.45);
+    transition: color 200ms;
   }
 
-  .section-title {
+  .btn-short {
+    font-family: "Alegreya", serif;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    color: rgba(148, 163, 184, 0.6);
+    transition: color 200ms;
+  }
+
+  .chapter-btn.is-active .btn-roman { color: var(--gem-base); opacity: 0.85; }
+  .chapter-btn.is-active .btn-short { color: rgba(215, 255, 250, 0.92); }
+  .chapter-btn.is-done .btn-short   { color: rgba(148, 163, 184, 0.72); }
+
+  /* ── Content area ── */
+  .reader-content {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(150deg, #0d1018 0%, #090b12 100%);
+  }
+
+  /* ── Panels ── */
+  .chapter-panel {
+    display: none;
+    grid-template-columns: 1fr 360px;
+    grid-template-rows: auto 1fr auto;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .chapter-panel.is-active { display: grid; }
+
+  .chapter-panel.is-entering { animation: slideIn 360ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .chapter-panel.is-leaving  { animation: slideOut 280ms ease-in both; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(16px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideOut {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(-10px); }
+  }
+
+  /* Header spans full width */
+  .chapter-header {
+    grid-column: 1 / -1;
+    flex-shrink: 0;
+    padding: 1.75rem 2.5rem 1.25rem;
+    border-bottom: 1px solid rgba(198, 161, 91, 0.1);
+    background: rgba(5, 7, 12, 0.60);
+    border-top: 2px solid var(--gem-base);
+  }
+
+  .chapter-header-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .chapter-roman {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--gem-base);
+    opacity: 0.35;
+    flex-shrink: 0;
+    margin-top: -0.15rem;
+    user-select: none;
+  }
+
+  .chapter-eyebrow {
     font-family: "Marcellus", serif;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    line-height: 1.15;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.46em;
+    color: rgba(198, 161, 91, 0.58);
+    margin-bottom: 0.3rem;
+  }
+
+  .chapter-title {
+    font-family: "Marcellus", serif;
+    font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+    line-height: 1.2;
     color: rgba(215, 255, 250, 0.94);
   }
 
-  /* Right column: prose */
-  .section-prose {
-    grid-column: 2;
+  .chapter-progress-bar {
+    margin-top: 1rem;
+    height: 2px;
+    background: rgba(198, 161, 91, 0.08);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .chapter-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gem-base), var(--gem-glow));
+    border-radius: 1px;
+    transition: width 400ms ease;
+  }
+
+  /* Scrollable body */
+  .chapter-body {
+    grid-column: 1;
     grid-row: 2;
+    overflow-y: auto;
+    min-height: 0;
+    padding: 2rem 2.5rem 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(198, 161, 91, 0.2) transparent;
   }
 
-  .section-prose p {
+  .chapter-body:focus { outline: none; }
+
+  .chapter-body p {
     font-family: "Alegreya", serif;
-    font-size: 1.08rem;
+    font-size: 1.1rem;
     line-height: 1.9;
-    color: rgba(205, 216, 219, 0.82);
-    margin-bottom: 1.2rem;
-    max-width: 68ch;
+    color: rgba(205, 216, 219, 0.84);
+    max-width: 70ch;
+    margin-bottom: 1.35rem;
   }
 
-  /* Drop cap */
-  .section-prose p.dropcap::first-letter {
+  .chapter-body p.dropcap::first-letter {
     float: left;
     font-family: "Cormorant Garamond", serif;
-    font-size: 3.8em;
+    font-size: 4em;
     font-weight: 700;
-    line-height: 0.8;
-    margin-right: 0.16em;
+    line-height: 0.78;
+    margin-right: 0.18em;
     margin-top: 0.06em;
-    color: rgba(198, 161, 91, 0.85);
+    color: rgba(198, 161, 91, 0.82);
   }
 
-  /* Pull quote */
+  /* Pull quote inside body */
   .pull-quote {
-    grid-column: 2;
-    grid-row: 3;
     position: relative;
-    margin: 1.5rem 0 0;
-    padding: 1.25rem 1.5rem 1.25rem 2rem;
-    border-left: 2px solid rgba(110, 231, 216, 0.3);
+    margin: 0.5rem 0 1rem;
+    padding: 1.1rem 1.25rem 1.1rem 1.75rem;
+    border-left: 2px solid var(--gem-base);
     background:
-      linear-gradient(90deg, rgba(110, 231, 216, 0.04), transparent 70%),
+      linear-gradient(90deg, var(--gem-subtle), transparent 70%),
       rgba(7, 6, 4, 0.3);
+    max-width: 65ch;
   }
 
   .quote-mark {
     position: absolute;
-    top: 0.5rem;
-    left: 0.6rem;
-    font-size: 1.5rem;
+    top: 0.4rem; left: 0.5rem;
+    font-size: 1.4rem;
     line-height: 1;
-    color: rgba(110, 231, 216, 0.22);
+    color: var(--gem-base);
+    opacity: 0.25;
     font-family: "Cormorant Garamond", serif;
     user-select: none;
   }
 
   .pull-quote p {
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    font-size: clamp(1rem, 1.6vw, 1.15rem) !important;
     font-weight: 600;
     font-style: italic;
     line-height: 1.6;
-    color: rgba(215, 255, 250, 0.78);
+    color: rgba(215, 255, 250, 0.78) !important;
+    margin-bottom: 0 !important;
   }
 
-  /* Colophon */
-  .colophon {
+  /* Image column */
+  .chapter-image-col {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.25rem 1.5rem 0.75rem;
+    overflow: hidden;
+  }
+
+  .chapter-img-placeholder {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    background:
+      radial-gradient(ellipse at 50% 35%, var(--gem-subtle) 0%, transparent 65%),
+      rgba(7, 6, 4, 0.85);
+    border: 1px solid var(--gem-base);
+    box-shadow: inset 0 0 40px var(--gem-subtle), 0 0 20px var(--gem-subtle);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 3rem 0 1rem;
+    position: relative;
+    opacity: 0.9;
   }
 
-  .colophon-line {
-    display: block;
-    width: 5rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.25), transparent);
+  .img-corner {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-color: var(--gem-base);
+    border-style: solid;
+    opacity: 0.6;
   }
+  .img-corner--tl { top: 6px; left: 6px;   border-width: 1px 0 0 1px; }
+  .img-corner--tr { top: 6px; right: 6px;  border-width: 1px 1px 0 0; }
+  .img-corner--bl { bottom: 6px; left: 6px;  border-width: 0 0 1px 1px; }
+  .img-corner--br { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
 
-  .colophon-glyph {
-    font-family: "Marcellus", serif;
-    font-size: 1rem;
-    color: rgba(198, 161, 91, 0.2);
+  .img-gem-content { display: flex; align-items: center; justify-content: center; }
+
+  .img-gem-glyph {
+    font-size: 2.5rem;
+    color: var(--gem-base);
+    opacity: 0.35;
     user-select: none;
+    filter: drop-shadow(0 0 8px var(--gem-base));
   }
 
-  /* ════════════════════════════════════════════
-     RESPONSIVE
-  ════════════════════════════════════════════ */
-  @media (max-width: 639px) {
-    .actualidad-hero {
-      padding: 5.5rem 1.25rem 3rem;
-    }
+  /* Nav bar spans full width */
+  .chapter-nav {
+    grid-column: 1 / -1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 2.5rem;
+    border-top: 1px solid rgba(198, 161, 91, 0.09);
+    background: rgba(4, 5, 9, 0.80);
+  }
 
-    .codex-section {
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Marcellus", serif;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: rgba(198, 161, 91, 0.65);
+    padding: 0.45rem 0.75rem;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: color 200ms, border-color 200ms, background 200ms;
+  }
+
+  .nav-btn:hover:not([disabled]) {
+    color: rgba(198, 161, 91, 1);
+    border-color: rgba(198, 161, 91, 0.26);
+    background: rgba(198, 161, 91, 0.04);
+  }
+
+  .nav-btn[disabled] { opacity: 0.22; cursor: not-allowed; }
+  .nav-btn-label { display: none; }
+
+  @media (min-width: 520px) { .nav-btn-label { display: inline; } }
+
+  .nav-info {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    color: rgba(148, 163, 184, 0.42);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-current { font-size: 1.1rem; color: rgba(198, 161, 91, 0.7); }
+  .nav-sep { color: rgba(198, 161, 91, 0.3); }
+
+  /* ── Mobile ── */
+  @media (max-width: 767px) {
+    .reader {
       grid-template-columns: 1fr;
-      column-gap: 0;
+      grid-template-rows: auto 1fr;
+      height: auto;
+      max-height: none;
+      overflow: visible;
     }
 
-    .section-label {
-      grid-column: 1;
-      grid-row: 1;
+    .reader-sidebar {
+      border-right: none;
+      border-bottom: 1px solid rgba(198, 161, 91, 0.11);
       flex-direction: row;
       align-items: center;
-      margin-bottom: 1rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.75rem 1rem;
+      gap: 0.25rem;
+      height: auto;
+      min-height: 3.5rem;
     }
 
-    .label-rule {
-      width: 100%;
-      height: 1px;
-      min-height: unset;
-      background: linear-gradient(90deg, rgba(198, 161, 91, 0.22), transparent);
+    .sidebar-header { display: none; }
+    .timeline-track { display: none; }
+
+    .chapter-list-nav { flex-direction: row; gap: 0.25rem; }
+
+    .chapter-btn {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.4rem 0.75rem;
+      white-space: nowrap;
     }
 
-    .section-header {
-      grid-column: 1;
-      grid-row: 2;
+    .chapter-dot { margin-top: 0; }
+    .btn-short { display: none; }
+    .btn-roman { font-size: 0.6rem; }
+
+    .reader-content {
+      height: calc(100dvh - 65px - 56px);
+      overflow: hidden;
     }
 
-    .section-prose {
-      grid-column: 1;
-      grid-row: 3;
+    .chapter-panel.is-active {
+      display: flex;
+      flex-direction: column;
     }
 
-    .pull-quote {
-      grid-column: 1;
-      grid-row: 4;
-    }
+    .chapter-image-col { display: none; }
+    .chapter-body { grid-column: unset; grid-row: unset; }
+    .chapter-header { grid-column: unset; padding: 1.25rem 1.25rem 1rem; }
+    .chapter-nav { grid-column: unset; padding: 0.75rem 1.25rem; }
+    .chapter-roman { font-size: 2rem; }
+    .chapter-body { padding: 1.25rem 1.25rem 1rem; }
+  }
+
+  /* ── Tablet ── */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .reader { grid-template-columns: 210px 1fr; }
+    .chapter-panel { grid-template-columns: 1fr 220px; }
+    .chapter-header { padding: 1.5rem 2rem 1.1rem; }
+    .chapter-body { padding: 1.5rem 2rem; }
+    .chapter-nav { padding: 0.875rem 2rem; }
   }
 </style>
+
+<script>
+  const TOTAL = document.querySelectorAll("[data-chapter]").length;
+  const panels      = Array.from(document.querySelectorAll<HTMLElement>("[data-chapter]"));
+  const sidebarBtns = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-chapter-btn]"));
+  const trackFill   = document.getElementById("track-fill") as HTMLElement;
+
+  let current = 0;
+
+  function setChapter(next: number) {
+    if (next === current || next < 0 || next >= TOTAL) return;
+    const leaving  = panels[current];
+    const entering = panels[next];
+    leaving.classList.add("is-leaving");
+    leaving.addEventListener("animationend", () => {
+      leaving.classList.remove("is-active", "is-leaving");
+      leaving.setAttribute("aria-hidden", "true");
+      entering.classList.add("is-active", "is-entering");
+      entering.removeAttribute("aria-hidden");
+      entering.querySelector<HTMLElement>(".chapter-body")?.scrollTo({ top: 0 });
+      entering.addEventListener("animationend", () => {
+        entering.classList.remove("is-entering");
+      }, { once: true });
+      current = next;
+      syncSidebar();
+    }, { once: true });
+  }
+
+  function syncSidebar() {
+    sidebarBtns.forEach((btn, i) => {
+      btn.classList.toggle("is-active", i === current);
+      btn.classList.toggle("is-done",   i < current);
+      btn.setAttribute("aria-current", i === current ? "true" : "false");
+    });
+    const track    = document.querySelector<HTMLElement>(".timeline-track");
+    const activeDot = sidebarBtns[current]?.querySelector<HTMLElement>(".chapter-dot");
+    if (track && activeDot) {
+      const trackRect  = track.getBoundingClientRect();
+      const dotRect    = activeDot.getBoundingClientRect();
+      const dotCenterY = dotRect.top + dotRect.height / 2;
+      const pct = Math.max(0, Math.min(100, ((dotCenterY - trackRect.top) / trackRect.height) * 100));
+      trackFill.style.height = `${pct}%`;
+    }
+    sidebarBtns[current]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+
+  sidebarBtns.forEach((btn, i) => {
+    btn.addEventListener("click", () => setChapter(i));
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-dir]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const panel = btn.closest<HTMLElement>("[data-chapter]")!;
+      const idx   = Number(panel.dataset.chapter);
+      const dir   = btn.dataset.dir as "prev" | "next";
+      setChapter(dir === "next" ? idx + 1 : idx - 1);
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    const tag = (document.activeElement as HTMLElement)?.tagName;
+    if (tag === "TEXTAREA" || tag === "INPUT") return;
+    if ((document.activeElement as HTMLElement)?.classList.contains("chapter-body")) return;
+    if (e.key === "ArrowRight") setChapter(current + 1);
+    if (e.key === "ArrowLeft")  setChapter(current - 1);
+  });
+
+  syncSidebar();
+  window.addEventListener("resize", syncSidebar, { passive: true });
+</script>
