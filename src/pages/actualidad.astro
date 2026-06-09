@@ -1,0 +1,447 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { project } from "@data/lore";
+
+const sections = [
+  {
+    roman: "I",
+    title: "La Doctrina",
+    eyebrow: "El Tomo de la Ascensión",
+    paragraphs: [
+      "Nadie recuerda ya cómo era realmente el mundo antes de la Ascensión. Existen relatos, pinturas antiguas, fragmentos de archivos y algunas historias transmitidas entre generaciones, pero casi todo lo relacionado con aquella época terminó desapareciendo con el tiempo. Lo poco que se conserva está protegido por la Sociedad o escrito dentro del Tomo de la Ascensión, y para la mayoría de las personas eso es más que suficiente.",
+      "Porque en la ciudad no importa tanto lo que ocurrió realmente. Importa lo que fue aceptado como verdad.",
+      "La Ascensión marcó el comienzo de una nueva era. El momento exacto en el que la humanidad abandonó la superficie y se elevó hacia los cielos para sobrevivir a la corrupción del mundo inferior. Así lo enseña el Tomo de la Ascensión, y así ha sido repetido durante siglos en escuelas, templos y plazas públicas.",
+      "Con el paso del tiempo, aquella historia dejó de ser memoria. Se convirtió en doctrina. Y de todas las doctrinas que existen en la ciudad, ninguna tiene más peso que el Tomo de la Ascensión.",
+      "El libro está presente en todas partes. Se encuentra en templos iluminados por cristales blancos, en edificios oficiales, en las academias de formación e incluso en las casas más humildes de los distritos bajos. Algunas familias conservan pequeñas copias heredadas de generación en generación. Otras solo conocen fragmentos concretos, repetidos tantas veces que ya forman parte de la vida cotidiana.",
+      "Muchos ciudadanos son capaces de recitar párrafos enteros sin necesidad de leerlos. Porque el Tomo no es solo un libro sagrado. Es la base sobre la que se construyó la ciudad entera.",
+    ],
+    quote: "No es una interpretación. No es filosofía. Es la verdad definitiva.",
+  },
+  {
+    roman: "II",
+    title: "La Sociedad",
+    eyebrow: "Gobierno y Fe",
+    paragraphs: [
+      "Cuestionarlo no se considera simplemente una falta de fe, sino una amenaza contra el equilibrio mismo de la ciudad. Y es precisamente la Sociedad quien protege esa verdad.",
+      "Desde hace siglos, la Sociedad gobierna cada aspecto de la vida en la ciudad. Sus miembros controlan la administración, el comercio, la educación, la investigación y las fuerzas de seguridad. Pero su poder no termina ahí. También son los guardianes del Tomo de la Ascensión y los únicos autorizados para interpretar su significado completo.",
+      "En las ceremonias oficiales, los altos miembros de la Sociedad hablan del Tomo como si sus palabras fueran eternas e inmutables. En las escuelas, los niños aprenden primero los relatos de la Ascensión antes incluso que la historia de la ciudad. En los templos, los predicadores recuerdan constantemente que la humanidad ya tuvo una oportunidad de destruirse… y que solo la obediencia evitó la extinción completa.",
+      "Con el paso de los siglos, la mayoría dejó de cuestionarlo. Algunos aceptan la doctrina por verdadera fe. Otros simplemente crecieron dentro de ella y jamás imaginaron una alternativa. Y también existen quienes guardan dudas en silencio, aunque rara vez se atreven a expresarlas en voz alta.",
+      "Porque en la ciudad las dudas son peligrosas. No siempre porque exista un castigo inmediato, sino porque toda la ciudad está construida alrededor de una única verdad compartida. Cuestionar esa verdad significa cuestionar el orden, la estabilidad y, para muchos, la propia supervivencia.",
+    ],
+    quote: "La religión y el gobierno terminaron convirtiéndose en la misma cosa.",
+  },
+  {
+    roman: "III",
+    title: "La Ciudad",
+    eyebrow: "Descripción del Mundo Flotante",
+    paragraphs: [
+      "Aun así, la vida en la ciudad continúa. Y desde fuera, parece casi perfecta.",
+      "La ciudad flota sobre un mar interminable de nubes, suspendida en el cielo mediante tecnologías que pocos comprenden por completo. Sus enormes estructuras metálicas y de piedra blanca están conectadas por puentes elevados, ascensores verticales y plataformas flotantes que se desplazan lentamente entre distritos.",
+      "El aire es limpio. El agua nunca falta. Y el hambre, al menos en comparación con los tiempos antiguos, dejó de ser un problema.",
+    ],
+    quote: "Por las noches, las luces de los cristales iluminan las calles con un brillo suave y constante, haciendo que la ciudad parezca una estrella suspendida sobre el vacío.",
+  },
+  {
+    roman: "IV",
+    title: "Los Cristales",
+    eyebrow: "La Tecnología de la Supervivencia",
+    paragraphs: [
+      "Gran parte de ese milagro se debe a los cristales. Según el Tomo de la Ascensión, fueron un regalo nacido de la salvación misma. Según los archivos técnicos de la Sociedad, son una fuente de energía extremadamente compleja capaz de alimentar sistemas imposibles para la tecnología antigua. La mayoría de la población no entiende cómo funcionan. Y realmente tampoco necesita hacerlo.",
+      "Los cristales están presentes en cada rincón de la ciudad. Alimentan motores, sistemas de iluminación, ascensores, redes de calefacción y enormes máquinas de purificación. Algunas estructuras enteras laten gracias a ellos como si fueran corazones artificiales.",
+      "Uno de los usos más importantes de esta tecnología es la extracción de agua de las nubes. Gigantescas máquinas instaladas bajo la ciudad absorben la humedad del cielo y la transforman en agua potable. Otras plataformas están dedicadas a la agricultura suspendida, donde enormes campos artificiales producen alimento suficiente para mantener a la población.",
+      "También existen zonas de ganadería, cuidadosamente controladas y protegidas dentro de áreas específicas de la ciudad. La humanidad aprendió a sobrevivir lejos de la superficie. Y con el tiempo, terminó adaptándose demasiado bien a ello.",
+    ],
+    quote: "Algunas estructuras enteras laten gracias a ellos como si fueran corazones artificiales.",
+  },
+  {
+    roman: "V",
+    title: "El Mundo Inferior",
+    eyebrow: "La Superficie como Mito",
+    paragraphs: [
+      "Para muchos ciudadanos, el mundo inferior no es más que una idea lejana. Un lugar del que se habla en ceremonias religiosas o en clases de historia, pero que casi nadie ha visto realmente.",
+      "La superficie se convirtió en algo parecido a un mito. Oscura. Lejana. Prohibida.",
+      "Algunos la imaginan como un desierto muerto. Otros creen que sigue infestada de horrores nacidos tras la corrupción. Y hay quienes aseguran que, si uno escucha con atención durante las noches más silenciosas, todavía puede oír ecos del viejo mundo debajo de las nubes.",
+      "Pero casi nadie piensa realmente en ello durante demasiado tiempo. Porque en la ciudad, mirar hacia abajo nunca ha sido bien visto.",
+    ],
+    quote: "Mirar hacia abajo nunca ha sido bien visto.",
+  },
+];
+---
+
+<BaseLayout
+  title={`Actualidad | ${project.name}`}
+  description="El estado actual del mundo. La Ciudad del Cielo, su doctrina, sus cristales y la superficie olvidada."
+>
+  <!-- ══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════ -->
+  <section class="actualidad-hero" aria-labelledby="actualidad-title">
+    <div class="hero-glow hero-glow--top"    aria-hidden="true"></div>
+    <div class="hero-glow hero-glow--bottom" aria-hidden="true"></div>
+    <div class="actualidad-hero-inner">
+      <p class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>Estado del Mundo</span>
+        <span class="eyebrow-line"></span>
+      </p>
+      <h1 id="actualidad-title" class="hero-title">Actualidad</h1>
+      <p class="hero-lead">
+        En la Ciudad del Cielo, la humanidad consiguió sobrevivir a la corrupción del Desequilibrio.<br/>
+        Lo que sigue es el estado del mundo tal como es conocido por sus habitantes.
+      </p>
+    </div>
+    <div class="hero-divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <span class="divider-glyph">◆</span>
+      <span class="divider-line"></span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SECTIONS
+  ══════════════════════════════════════════════════════ -->
+  <main id="contenido-actualidad" class="actualidad-body">
+    {sections.map((sec) => (
+      <article class="codex-section" aria-labelledby={`sec-${sec.roman}`}>
+
+        <!-- Section anchor / label -->
+        <div class="section-label" aria-hidden="true">
+          <span class="label-roman">{sec.roman}</span>
+          <span class="label-rule"></span>
+        </div>
+
+        <!-- Section header -->
+        <header class="section-header">
+          <p class="section-eyebrow">{sec.eyebrow}</p>
+          <h2 id={`sec-${sec.roman}`} class="section-title">{sec.title}</h2>
+        </header>
+
+        <!-- Prose -->
+        <div class="section-prose">
+          {sec.paragraphs.map((p, i) => (
+            <p class:list={[i === 0 && "dropcap"]}>{p}</p>
+          ))}
+        </div>
+
+        <!-- Pull quote -->
+        <blockquote class="pull-quote">
+          <span class="quote-mark" aria-hidden="true">❝</span>
+          <p>{sec.quote}</p>
+        </blockquote>
+
+      </article>
+    ))}
+
+    <!-- Colophon -->
+    <div class="colophon" aria-hidden="true">
+      <span class="colophon-line"></span>
+      <span class="colophon-glyph">⬡</span>
+      <span class="colophon-line"></span>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  /* ════════════════════════════════════════════
+     HERO
+  ════════════════════════════════════════════ */
+  .actualidad-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 7rem 1.5rem 4rem;
+    text-align: center;
+  }
+
+  .hero-glow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(7rem);
+  }
+
+  .hero-glow--top {
+    width: 55rem; height: 20rem;
+    top: -4rem;
+    background: radial-gradient(ellipse, rgba(60, 130, 220, 0.09), transparent 70%);
+  }
+
+  .hero-glow--bottom {
+    width: 35rem; height: 14rem;
+    bottom: 0;
+    background: radial-gradient(ellipse, rgba(198, 161, 91, 0.06), transparent 70%);
+  }
+
+  .actualidad-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: "Marcellus", serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.46em;
+    color: rgba(198, 161, 91, 0.6);
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.4));
+  }
+
+  .eyebrow-line:last-child {
+    background: linear-gradient(90deg, rgba(198, 161, 91, 0.4), transparent);
+  }
+
+  .hero-title {
+    font-family: "Marcellus", serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: rgba(215, 255, 250, 0.96);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-lead {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.75;
+    color: rgba(148, 163, 184, 0.72);
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+
+  .hero-divider {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+  }
+
+  .divider-line {
+    display: block;
+    width: 6rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.35), transparent);
+  }
+
+  .divider-glyph {
+    font-size: 0.55rem;
+    color: rgba(198, 161, 91, 0.55);
+  }
+
+  /* ════════════════════════════════════════════
+     BODY
+  ════════════════════════════════════════════ */
+  .actualidad-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  /* ── Section ── */
+  .codex-section {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 2rem;
+    row-gap: 0;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(198, 161, 91, 0.08);
+  }
+
+  .codex-section:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Left column: roman numeral + vertical rule */
+  .section-label {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
+  }
+
+  .label-roman {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: rgba(198, 161, 91, 0.45);
+    writing-mode: horizontal-tb;
+  }
+
+  .label-rule {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(198, 161, 91, 0.22), transparent);
+    min-height: 3rem;
+  }
+
+  /* Right column: header */
+  .section-header {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-eyebrow {
+    font-family: "Marcellus", serif;
+    font-size: 0.56rem;
+    text-transform: uppercase;
+    letter-spacing: 0.44em;
+    color: rgba(110, 231, 216, 0.55);
+    margin-bottom: 0.4rem;
+  }
+
+  .section-title {
+    font-family: "Marcellus", serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    color: rgba(215, 255, 250, 0.94);
+  }
+
+  /* Right column: prose */
+  .section-prose {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .section-prose p {
+    font-family: "Alegreya", serif;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: rgba(205, 216, 219, 0.82);
+    margin-bottom: 1.2rem;
+    max-width: 68ch;
+  }
+
+  /* Drop cap */
+  .section-prose p.dropcap::first-letter {
+    float: left;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3.8em;
+    font-weight: 700;
+    line-height: 0.8;
+    margin-right: 0.16em;
+    margin-top: 0.06em;
+    color: rgba(198, 161, 91, 0.85);
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    grid-column: 2;
+    grid-row: 3;
+    position: relative;
+    margin: 1.5rem 0 0;
+    padding: 1.25rem 1.5rem 1.25rem 2rem;
+    border-left: 2px solid rgba(110, 231, 216, 0.3);
+    background:
+      linear-gradient(90deg, rgba(110, 231, 216, 0.04), transparent 70%),
+      rgba(7, 6, 4, 0.3);
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.6rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: rgba(110, 231, 216, 0.22);
+    font-family: "Cormorant Garamond", serif;
+    user-select: none;
+  }
+
+  .pull-quote p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.6;
+    color: rgba(215, 255, 250, 0.78);
+  }
+
+  /* Colophon */
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 3rem 0 1rem;
+  }
+
+  .colophon-line {
+    display: block;
+    width: 5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 161, 91, 0.25), transparent);
+  }
+
+  .colophon-glyph {
+    font-family: "Marcellus", serif;
+    font-size: 1rem;
+    color: rgba(198, 161, 91, 0.2);
+    user-select: none;
+  }
+
+  /* ════════════════════════════════════════════
+     RESPONSIVE
+  ════════════════════════════════════════════ */
+  @media (max-width: 639px) {
+    .actualidad-hero {
+      padding: 5.5rem 1.25rem 3rem;
+    }
+
+    .codex-section {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+    }
+
+    .section-label {
+      grid-column: 1;
+      grid-row: 1;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .label-rule {
+      width: 100%;
+      height: 1px;
+      min-height: unset;
+      background: linear-gradient(90deg, rgba(198, 161, 91, 0.22), transparent);
+    }
+
+    .section-header {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .section-prose {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .pull-quote {
+      grid-column: 1;
+      grid-row: 4;
+    }
+  }
+</style>
